@@ -905,10 +905,17 @@ updUI();
 function repeatBet()
 {
 if(gameState!=='betting')return;
-if(lastBet > 0 && credits >= lastBet)
+if(lastBet>0)
+{
+if(bet===lastBet)
+{
+deal();
+}
+else if(credits+bet>=lastBet)
 {
 clearBet();
 addBet(lastBet);
+}
 }
 }
 
@@ -1079,10 +1086,17 @@ updUI();
 
 function repeatSlotBet()
 {
-if(lastSlotBet > 0 && credits >= lastSlotBet)
+if(lastSlotBet>0)
+{
+if(slotBet===lastSlotBet)
+{
+spinSlot();
+}
+else if(credits+slotBet>=lastSlotBet)
 {
 clearSlotBet();
 addSlotBet(lastSlotBet);
+}
 }
 }
 
